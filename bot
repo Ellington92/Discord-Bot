@@ -1,0 +1,80 @@
+import discord
+from discord.ext.commands import bot
+from discord.ext import commands
+import random
+import asyncio
+import time
+
+bot = commands.Bot(command_prefix='!')
+
+@bot.event
+async def on_ready():
+    print("Bot Is Starting Up... Please Wait")
+    print("Name: " + bot.user.name)
+    print("ID: " + bot.user.id)
+    print("Bot Is Online!")
+ 
+@bot.command(pass_context=True)
+async def TSMNews(ctx):
+    await bot.say("Welcome to the TSM News! TSM Hamlins recently played Island Royale. Myth still is boring and plays fortnite.")
+
+
+@bot.command(pass_context=True)
+async def NinjaNews(ctx):
+    await bot.say("Welcome to the Ninja News! Ninja recently hosted a very small twitch streamer. He also won a game.")
+
+
+@bot.command(pass_context=True)
+async def FoxNews(ctx):
+    await bot.say("Trump is making a wall.")
+
+
+
+@bot.command(pass_context=True)
+async def FaZeNews(ctx):
+    await bot.say("FaZe TFue just hacked a Fortnite person dude.")
+
+
+@bot.command(pass_context=True)
+async def givememe(ctx):
+    await bot.say("Ali-A")
+
+
+@bot.command(pass_context=True)
+async def oofme(ctx):
+    await bot.say("OOF You!")
+
+
+@bot.command(pass_context=True)
+async def add(ctx, a: int, b: int):
+    await bot.say(a+b)
+
+@bot.command(pass_context=True)
+async def multiply(ctx, a: int, b: int):
+    await bot.say(a*b)
+
+
+@bot.command(pass_context=True)
+async def cmds(ctx):
+    embed = discord.Embed(title="Jeffsouth Bot", description="", color=0xeee657)
+
+    embed.add_field(name="!TSMNews", value="Get The Latest TSM News!", inline=False)
+    embed.add_field(name="!NinjaNews", value="Get The Latest Ninja News!", inline=False)
+    embed.add_field(name="!FoxNews", value="Get The Latest Fox News!", inline=False)
+    embed.add_field(name="!givememe", value="Gives a mem.", inline=False)
+    embed.add_field(name="!FaZeNews", value="Get The Latest FaZe News", inline=False)
+    embed.add_field(name="!oofme", value="get oofed", inline=False)
+    embed.add_field(name="!add", value="add numbers", inline=False)
+    embed.add_field(name="!multiply", value="multiply numbers", inline=False)
+
+
+    await bot.say(embed=embed)
+
+@bot.command(pass_context = True)
+async def console(ctx, *args):
+    console = ' '.join(args)
+    await bot.delete_message(ctx.message)
+    return await bot.say(console)
+
+         
+bot.run ("NDc0MDU3MDM1ODE4OTkxNjE2.DkLEPg.q07HOtKMHSlCc9--0mg_-2g-6HY")
